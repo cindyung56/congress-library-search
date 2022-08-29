@@ -28,13 +28,13 @@ function printResults(resultObj) {
 // add query and format to locQueryURL, fetch API, call printResults
 // cors-anywhere.herokuapp.com/
 function searchApi(query, format) {
-    //var locQueryUrl = "https://www.loc.gov/" + format + "/?q=" + query + "&fo=json";
-    var locQueryUrl = "https://www.loc.gov/search/?fo=json&q=civil%20war";
+    var locQueryUrl = "https://cors-anywhere.herokuapp.com/https://www.loc.gov/search/?fo=json&q=" + query + "&format=" + format;
+    //var locQueryUrl = "https://www.loc.gov/search/?fo=json&q=civil%20war";
     console.log(locQueryUrl);
 
     fetch(locQueryUrl)
     .then(function(response){
-        return response.json;
+        return response.json();
     }).then(function(data){
         console.log(data);
     })

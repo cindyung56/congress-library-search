@@ -26,10 +26,10 @@ function printResults(resultObj) {
 
 
 // add query and format to locQueryURL, fetch API, call printResults
+// cors-anywhere.herokuapp.com/
 function searchApi(query, format) {
-    var locQueryUrl =
-        "https://cors-anywhere.herokuapp.com/www.loc.gov/search/?fo=json" + "&" +
-        query + "&" + format;
+    //var locQueryUrl = "https://www.loc.gov/" + format + "/?q=" + query + "&fo=json";
+    var locQueryUrl = "https://www.loc.gov/search/?fo=json&q=civil%20war";
     console.log(locQueryUrl);
 
     fetch(locQueryUrl)
@@ -38,11 +38,11 @@ function searchApi(query, format) {
     }).then(function(data){
         console.log(data);
     })
-
 }
 
 function handleSearchFormSubmit(event) {
     event.preventDefault();
+    console.log("submit button has been pressed");
 }
 
 searchFormEl.addEventListener("submit", handleSearchFormSubmit);
